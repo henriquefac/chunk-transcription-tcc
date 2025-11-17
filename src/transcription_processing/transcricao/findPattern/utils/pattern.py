@@ -1,6 +1,7 @@
 from . import re, dataclass, Speech
 from typing import Generator
 
+
 @dataclass
 class TransciptionPattern:
     block_regex: re.Pattern = re.compile(
@@ -16,20 +17,15 @@ class TransciptionPattern:
         (?P<text>.*?)
         (?=\n\[|\Z)
         """,
-        re.VERBOSE | re.DOTALL
+        re.VERBOSE | re.DOTALL,
     )
 
     @classmethod
-    def finditer(cls, raw_text: str)->Generator[Speech, None, None]:
+    def finditer(cls, raw_text: str) -> Generator[Speech, None, None]:
         for match in cls.block_regex.finditer(raw_text):
             start = match["start"]
             end = match["end"]
             speaker = match["speaker"]
             text = match["text"]
 
-            yield Speech.get_speech(
-                start,
-                end,
-                speaker,
-                text
-            )
+            yield Speech.from_raw(start, end, speaker, text)
