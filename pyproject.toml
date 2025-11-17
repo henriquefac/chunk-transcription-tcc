@@ -3,24 +3,21 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "transcript-processing"
+name = "transcription-processing"
 version = "0.1.0"
-description = "Processamento de transcrições com chunking, hash de falas e parsing de timestamps."
+description = "Processamento de transcrições com chunking, hashing de falas e parsing de timestamps."
 authors = [
     { name = "Henrique Façanha" }
 ]
-
+readme = "README.md"
 requires-python = ">=3.10"
 
-# Dependências do módulo
 dependencies = [
     "spacy >= 3.7.0",
 ]
 
-# Palavras-chave para PyPI
 keywords = ["transcription", "audio", "chunking", "NLP", "text", "speech"]
 
-# Classificadores opcionais (para PyPI)
 classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -30,4 +27,5 @@ classifiers = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["src*"]
+where = ["src"]
+include = ["transcription_processing*"]
