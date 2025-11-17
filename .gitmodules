@@ -1,4 +1,0 @@
-[submodule "configPy"]
-	path = configPy
-	url = git@github.com:henriquefac/configPy.git
-	branch = metrics-tcc-config
