@@ -82,6 +82,9 @@ class Speech:
 
         return [TextChunk.from_speech(self, ch) for ch in chunks]
 
+    def get_speech_format(self):
+        return (f"[{self.time_start} - {self.time_end}] {self.speaker}: {self.text}", len(self.text))
+    
     # -----------------------------
     # Debug
     # -----------------------------
@@ -92,3 +95,5 @@ class Speech:
             f"Tamanho da fala: {len(self.text)}\n\n"
             f"FALA: {self.text[:60]}...\n"
         )
+    
+
